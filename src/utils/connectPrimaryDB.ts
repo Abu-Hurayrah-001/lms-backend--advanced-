@@ -16,7 +16,7 @@ const connectPrimaryDB = async () => {
     try {
         const connectionObject = await mongoose.connect(mongoURI);
         console.log(
-            `Mongo DB is connected to: ${connectionObject.connection.host}`
+            `YAY!! YAY!! Mongo DB is connected to: ${connectionObject.connection.host}`
         );
     } catch (error) {
         if (error instanceof Error) {
