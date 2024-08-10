@@ -1,0 +1,7 @@
+DEVELOPMENT PHASE:
+
+    STEP : 1 - Setting up Express app using terminal
+    STEP : 2 - Setting up Server
+    STEP : 3 - Setting up Primary Database
+    STEP : 4 - Setting up Routes
+    STEP : 5 - Setting up CORS

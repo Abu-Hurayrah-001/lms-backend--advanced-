@@ -1,7 +1,7 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import dotenv from 'dotenv';
 import connectPrimaryDB from "./utils/connectPrimaryDB";
-import backendHomepageRouter from "./routes/backendhomePage.route";
+import backendHomepageRouter from "./routes/backendHomepage.route";
 
 //Storing express instance in app
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 //Loading environment variables into "process.env"
 dotenv.config();
 
-//creating port no.
+//Creating port no.
 const port = process.env.PORT || 8000;
 
 //Listening to the server

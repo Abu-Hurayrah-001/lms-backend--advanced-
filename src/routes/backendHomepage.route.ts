@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 
-//Creating router for homepage of the backend
+//Creating route for homepage of the backend
 const backendHomepageRouter = Router();
 
 backendHomepageRouter.get("/", (req: Request, res: Response) => {
