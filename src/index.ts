@@ -1,16 +1,26 @@
+//imports
 import express from "express";
 import dotenv from 'dotenv';
 import connectPrimaryDB from "./utils/connectPrimaryDB";
 import backendHomepageRouter from "./routes/backendHomepage.route";
-
-//Storing express instance in app
-const app = express();
+import cors from "cors";
+import corsOptions from "./utils/corsOption";
 
 //Loading environment variables into "process.env"
 dotenv.config();
 
+//Storing express instance in app
+const app = express();
+
 //Creating port no.
-const port = process.env.PORT || 8000;
+const port: number = parseInt(process.env.PORT || "8000", 10);
+
+//Routes
+app.use("/", backendHomepageRouter);
+
+//Middlewares
+app.use(cors(corsOptions));
+app.use(express.json());
 
 //Listening to the server
 app.listen(port, () => {
@@ -19,9 +29,3 @@ app.listen(port, () => {
 
 //connecting to MongoDB
 connectPrimaryDB();
-
-//Middlewares
-app.use(express.json());
-
-//Routes
-app.use("/", backendHomepageRouter);

@@ -1,3 +1,4 @@
+//imports
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 
@@ -6,10 +7,10 @@ dotenv.config();
 
 //connecting to Mongo DB database
 const connectPrimaryDB = async () => {
-    const mongoURI = process.env.MONGO_URI as string;
+    const mongoURI = process.env.MONGO_URI ;
     
     if (!mongoURI) {
-        console.error("'Mongo_URI' environment variable in not defined.");
+        console.error("'Oopsies!! Mongo_URI' environment variable in not defined.");
         process.exit(1);
     }
 
@@ -20,9 +21,9 @@ const connectPrimaryDB = async () => {
         );
     } catch (error) {
         if (error instanceof Error) {
-            console.error(`Error connecting to the primary database: ${error.message}`);
+            console.error(`Uh Oh!! Error connecting to the primary database: ${error.message}`);
         } else {
-            console.error("An unknown error has occurred when connecting to the primary database.")
+            console.error("An unknown error has occurred when connecting to the primary database. Enjoy debugging it :)");
         }
 
         process.exit(1);
