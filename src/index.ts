@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 import connectPrimaryDB from "./utils/connectPrimaryDB";
 import backendHomepageRouter from "./routes/backendHomepage.route";
 import cors from "cors";
-import corsOptions from "./utils/corsOption";
+import corsOptions from "./utils/corsOptions";
+import globalRateLimiter from "./utils/globalRateLimiter";
 
 //Loading environment variables into "process.env"
 dotenv.config();
@@ -14,6 +15,9 @@ const app = express();
 
 //Creating port no.
 const port: number = parseInt(process.env.PORT || "8000", 10);
+
+//Globally limiting api hitting rate per user
+app.use(globalRateLimiter);
 
 //Routes
 app.use("/", backendHomepageRouter);

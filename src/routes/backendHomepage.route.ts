@@ -1,10 +1,10 @@
 //imports
-import { Router, Response } from "express";
+import { Router, Request,  Response } from "express";
 
 //Creating route for homepage of the backend
 const backendHomepageRouter = Router();
 
-backendHomepageRouter.get("/", (res: Response) => {
+backendHomepageRouter.get("/", (req: Request, res: Response) => {
     res.send("Umm, Excuse Me!! What are you doing here.");
 });
 
